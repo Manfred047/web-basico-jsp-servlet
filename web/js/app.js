@@ -5,14 +5,10 @@ const app = new Vue({
             var self = this;
             axios.get("/users")
                 .then(function (response) {
-                    if (self.users.length) {
-                        self.users.add(response.data.data);
-                    } else {
-                        self.users = response.data.data;
-                    }
+                    self.users = response.data.data;
                 })
                 .catch(function (errors) {
-                    console.log('Error al optener la informacion');
+                    console.log(errors);
                     alert('Error al optener la informacion');
                 });
         },
@@ -22,7 +18,7 @@ const app = new Vue({
                 .then(function (response) {
 
                     if (self.users.length) {
-                        self.users.add(response.data.data);
+                        self.users.push(response.data.data);
                     } else {
                         self.users = [response.data.data];
                     }
@@ -35,6 +31,7 @@ const app = new Vue({
                     alert("Datos agregados a la table :)");
                 })
                 .catch(function (errors) {
+                    console.log(errors);
                     alert("Error inesperado");
                 });
         }
