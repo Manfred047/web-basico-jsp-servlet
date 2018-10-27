@@ -5,7 +5,11 @@ const app = new Vue({
             var self = this;
             axios.get("/users")
                 .then(function (response) {
-                    self.users = response.data.data;
+                    if (self.users.length) {
+                        self.users.add(response.data.data);
+                    } else {
+                        self.users = response.data.data;
+                    }
                 })
                 .catch(function (errors) {
                     console.log('Error al optener la informacion');
@@ -16,7 +20,13 @@ const app = new Vue({
             var self = this;
             axios.post("/users", self.form)
                 .then(function (response) {
-                    self.users.add(response.data.data);
+
+                    if (self.users.length) {
+                        self.users.add(response.data.data);
+                    } else {
+                        self.users = [response.data.data];
+                    }
+
                     self.form = {
                         name: "",
                         lastName: "",
