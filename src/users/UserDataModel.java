@@ -6,7 +6,6 @@ public class UserDataModel {
 
     private List<UserModel> data;
 
-
     public List<UserModel> getData() {
         return data;
     }

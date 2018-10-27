@@ -7,7 +7,7 @@ public class UserModel {
     public UserModel(String name, String lastName, int age) {
         super();
         this.setName(name);
-        this.setLasName(lastName);
+        this.setLastName(lastName);
         this.setAge(age);
     }
 
@@ -19,12 +19,12 @@ public class UserModel {
         this.name = name;
     }
 
-    public String getLasName() {
-        return lasName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLasName(String lasName) {
-        this.lasName = lasName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Integer getAge() {
@@ -36,6 +36,6 @@ public class UserModel {
     }
 
     private String name;
-    private String lasName;
+    private String lastName;
     private int age;
 }

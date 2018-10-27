@@ -9,21 +9,53 @@
 <html>
   <head>
     <title>AJAX JSP Servelts</title>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
   </head>
   <body>
   <div id="app">
     {{ message }}
+    <br>
     <button @click="getData()">Obtener info</button>
-    <table cellspacing="1" bgcolor="#0099cc">
+    <br>
+    {{ formMessage }}
+    <form v-on:submit.prevent="store">
+      Nombre:<br>
+      <input type="text" name="name" v-model="form.name">
+      <br>
+      Apellidos:<br>
+      <input type="text" name="lastName" v-model="form.lastName">
+      <br>
+      Edad:<br>
+      <input type="number" name="age" v-model="form.age">
+      <br><br>
+      <button type="submit">A&ntilde;adir a tabla</button>
+    </form>
+    <table>
       <tr>
-        <td rowspan="7" align="center" bgcolor="#f8f8f8"> NOMBRE </td>
-        <td rowspan="7" align="center" bgcolor="#f8f8f8"> APELLIDO </td>
-        <td rowspan="7" align="center" bgcolor="#f8f8f8"> EDAD </td>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Edad</th>
       </tr>
       <tr v-for="(user, index) in users" :key="index">
-        <td rowspan="7" align="center" bgcolor="#f8f8f8">{{ user.name }}</td>
-        <td rowspan="7" align="center" bgcolor="#f8f8f8">{{ user.lastName }}</td>
-        <td rowspan="7" align="center" bgcolor="#f8f8f8">{{ user.age }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.age }}</td>
       </tr>
     </table>
   </div>
