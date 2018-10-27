@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>By Manfred</title>
+    <title>AJAX JSP Servelts</title>
   </head>
   <body>
   <div id="app">
@@ -29,6 +29,6 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="./js/app.js"></script>
+  <script src="${pageContext.request.contextPath}/js/app.js"></script>
   </body>
 </html>

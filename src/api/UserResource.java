@@ -15,9 +15,8 @@ import java.util.ArrayList;
 public class UserResource extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private ArrayList<UserModel> userDataModel = new ArrayList<UserModel>();
 
-    protected void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("application/json; charset=utf-8");
         PrintWriter out = response.getWriter();
